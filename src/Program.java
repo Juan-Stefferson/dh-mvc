@@ -26,12 +26,17 @@ public class Program {
 		OrderModel orderModel = getOrderFromDatabase(clientController.getIdClient());
 		OrderView orderView = new OrderView();
 		OrderController orderController = new OrderController(orderModel, orderView);
+		
+		OrderProductModel orderProductModel = getOrderProductFromDatabase(productController.getProductId(), orderController.getOrderEi());
+		OrderProductView orderProductView = new OrderProductView();
+		OrderProductController orderProductController = new OrderProductController(orderProductModel, orderProductView);
 
 		clientController.updateView();
 		addressController.updateView();
 		telephoneController.updateView();
 		productController.updateView();
 		orderController.updateView();
+		orderProductController.updateView();
 	}
 
 	private static ClientModel getClientFromDatabase() {
@@ -66,6 +71,12 @@ public class Program {
 		ProductModel product = new ProductModel(currentProductId, "Test Product", "Doggo approves that product", 5, 123.45);
 		
 		return product;
+	}
+	
+	private static OrderProductModel getOrderProductFromDatabase(int fkProduct, String fkOrder) {
+		OrderProductModel orderProduct = new OrderProductModel(fkProduct, fkOrder, 10);
+		
+		return orderProduct;
 	}
 
 }
