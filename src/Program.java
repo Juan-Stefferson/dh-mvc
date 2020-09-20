@@ -14,12 +14,17 @@ public class Program {
 		AddressView addressView = new AddressView();
 		AddressController addressController = new AddressController(addressModel, addressView);
 		
+		TelephoneModel telephoneModel = getTelephoneFromDatabase(clientController.getIdClient());
+		TelephoneView telephoneView = new TelephoneView();
+		TelephoneController telephoneController = new TelephoneController(telephoneModel, telephoneView);
+		
 		OrderModel orderModel = getOrderFromDatabase(clientController.getIdClient());
 		OrderView orderView = new OrderView();
 		OrderController orderController = new OrderController(orderModel, orderView);
 
 		clientController.updateView();
 		addressController.updateView();
+		telephoneController.updateView();
 		orderController.updateView();
 	}
 
@@ -30,6 +35,12 @@ public class Program {
 		currentClientId++;
 
 		return client;
+	}
+	
+	private static TelephoneModel getTelephoneFromDatabase(int fkClient) {
+		TelephoneModel telephone = new TelephoneModel(91, "91234-5678", fkClient);
+
+		return telephone;
 	}
 
 	private static AddressModel getAddressFromDatabase(int fkClient) {

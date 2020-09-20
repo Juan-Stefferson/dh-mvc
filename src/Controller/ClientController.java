@@ -4,8 +4,8 @@ import Model.ClientModel;
 import View.ClientView;
 
 public class ClientController {
-	ClientModel model;
-	ClientView view;
+	private ClientModel model;
+	private ClientView view;
 
 	public ClientController(ClientModel model, ClientView view) {
 		this.model = model;

@@ -4,8 +4,8 @@ import Model.OrderModel;
 import View.OrderView;
 
 public class OrderController {
-	OrderModel model;
-	OrderView view;
+	private OrderModel model;
+	private OrderView view;
 
 	public OrderController(OrderModel model, OrderView view) {
 		this.model = model;

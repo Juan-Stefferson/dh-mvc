@@ -4,8 +4,8 @@ import Model.AddressModel;
 import View.AddressView;
 
 public class AddressController {
-	AddressModel model;
-	AddressView view;
+	private AddressModel model;
+	private AddressView view;
 	
 	public AddressController(AddressModel model, AddressView view) {
 		this.model = model;
