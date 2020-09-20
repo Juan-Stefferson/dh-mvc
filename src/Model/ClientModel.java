@@ -8,13 +8,13 @@ public class ClientModel {
 	private String rg;
 	private String bornDate;
 	
-	public ClientModel(int id_client, String name, String email, String cpf, String rg, String born_date) {
-		this.idClient = id_client;
+	public ClientModel(int idClient, String name, String email, String cpf, String rg, String bornDate) {
+		this.idClient = idClient;
 		this.name = name;
 		this.email = email;
 		this.cpf = cpf;
 		this.rg = rg;
-		this.bornDate = born_date;
+		this.bornDate = bornDate;
 	}
 
 	public String getName() {
