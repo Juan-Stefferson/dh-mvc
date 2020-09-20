@@ -1,18 +1,21 @@
-import Controller.ClientController;
-import Model.ClientModel;
-import View.ClientView;
+import Controller.*;
+import Model.*;
+import View.*;
 
 public class Program {
 	private static int currentClientId;
 
 	public static void main(String[] args) {
 		ClientModel clientModel = getClientFromDatabase();
-
 		ClientView clientView = new ClientView();
-
 		ClientController clientController = new ClientController(clientModel, clientView);
 		
+		AddressModel addressModel = getAddressFromDatabase(clientController.getIdClient());
+		AddressView addressView = new AddressView();
+		AddressController addressController = new AddressController(addressModel, addressView);
+		
 		clientController.updateView();
+		addressController.updateView();
 	}
 
 	private static ClientModel getClientFromDatabase() {
@@ -22,6 +25,12 @@ public class Program {
 		currentClientId++;
 		
 		return client;
+	}
+	
+	private static AddressModel getAddressFromDatabase(int fkClient) {
+		AddressModel address = new AddressModel(0, "Fool's Street", "Bar", "Next to Neverland", "Belém", "Pará", fkClient);
+		
+		return address;
 	}
 
 }
