@@ -65,7 +65,7 @@ public class AddressController {
 	}
 	
 	public void updateView() {
-		view.printAddressDetails(model.toString());
+		view.showDetails(model.toString());
 	}
 	
 }

@@ -1,7 +1,9 @@
 package View;
 
-public class AddressView {
-	public void printAddressDetails(String addressData) {
-		System.out.println(addressData);
+public class AddressView extends View {
+	@Override
+	public void showDetails(String data) {
+		System.out.print("Address: ");
+		super.showDetails(data);
 	}
 }

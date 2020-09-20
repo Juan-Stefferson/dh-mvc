@@ -57,6 +57,6 @@ public class ClientController {
 	}
 
 	public void updateView() {
-		view.printClientDetails(model.toString());
+		view.showDetails(model.toString());
 	}
 }

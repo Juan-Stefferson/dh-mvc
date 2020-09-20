@@ -1,7 +1,9 @@
 package View;
 
-public class ClientView {
-	public void printClientDetails(String clientData) {
-		System.out.println(clientData);
+public class ClientView extends View {
+	@Override
+	public void showDetails(String data) {
+		System.out.print("Client: ");
+		super.showDetails(data);
 	}
 }
