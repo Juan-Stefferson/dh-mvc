@@ -57,7 +57,6 @@ public class ClientController {
 	}
 
 	public void updateView() {
-		view.printClientDetails(model.getIdClient(), model.getName(), model.getEmail(), model.getCpf(), model.getRg(),
-				model.getBornDate());
+		view.printClientDetails(model.toString());
 	}
 }
