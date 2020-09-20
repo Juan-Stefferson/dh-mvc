@@ -9,28 +9,40 @@ public class Program {
 		ClientModel clientModel = getClientFromDatabase();
 		ClientView clientView = new ClientView();
 		ClientController clientController = new ClientController(clientModel, clientView);
-		
+
 		AddressModel addressModel = getAddressFromDatabase(clientController.getIdClient());
 		AddressView addressView = new AddressView();
 		AddressController addressController = new AddressController(addressModel, addressView);
 		
+		OrderModel orderModel = getOrderFromDatabase(clientController.getIdClient());
+		OrderView orderView = new OrderView();
+		OrderController orderController = new OrderController(orderModel, orderView);
+
 		clientController.updateView();
 		addressController.updateView();
+		orderController.updateView();
 	}
 
 	private static ClientModel getClientFromDatabase() {
 		ClientModel client = new ClientModel(currentClientId, "Test Client", "test.client@somemail.com",
 				"123.456.789-00", "12.345.678-90", "1996-01-11");
-		
+
 		currentClientId++;
-		
+
 		return client;
 	}
-	
+
 	private static AddressModel getAddressFromDatabase(int fkClient) {
-		AddressModel address = new AddressModel(0, "Fool's Street", "Bar", "Next to Neverland", "Belém", "Pará", fkClient);
-		
+		AddressModel address = new AddressModel(0, "Fool's Street", "Bar", "Next to Neverland", "Belém", "Pará",
+				fkClient);
+
 		return address;
+	}
+
+	private static OrderModel getOrderFromDatabase(int fkClient) {
+		OrderModel order = new OrderModel("", "", 1234.56, "PAYMENT PENDING", fkClient);
+		
+		return order;
 	}
 
 }
